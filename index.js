@@ -16,8 +16,8 @@ app.use(
 var routes = require("./route");
 routes(app);
 
-app.listen(process.env.PORT || 3000, () => {
-  console.log("RESTful API server started on: " + 3000);
+app.listen(process.env.PORT || 5050, () => {
+  console.log("RESTful API server started on: " + process.env.PORT || 5050);
 });
 
 module.exports = app;

@@ -1,14 +1,13 @@
-require("dotenv").config();
-console.log(typeof process.env.DB_PORT);
-const db = require("serverless-mysql")({
-  config: {
-    host: process.env.ENDPOINT,
-    database: process.env.DATABASE,
-    user: process.env.USERNAME,
-    password: process.env.PASSWORD,
-    port: 6033,
-  },
+var mysql = require("mysql");
+
+const db = mysql.createConnection({
+  host: process.env.ENDPOINT,
+  user: process.env.DB_USER,
+  password: process.env.PASSWORD,
+  database: process.env.DATABASE,
+  port: process.env.DB_PORT,
 });
 
-// Main handler function
+db.connect();
+
 module.exports = db;
